@@ -24,15 +24,15 @@ int main()
 {
     long int podstawa, wykladnik, ciag, liczba_silnia;
 
-    //Potêgowanie liczb
+    //PotÄ™gowanie liczb
     cout << "Potegowanie liczby" << endl << "Podaj liczbe: ";
     cin >> podstawa;
     cout << "Podaj wykladnik liczby: ";
     cin >> wykladnik;
     cout <<"Wynik to: " << potegowanie(podstawa,wykladnik);
 
-    //Wyznaczanie wyrazu ci¹gu fibonacciego
-    cout << "Wyznaczanie wyrazu ci¹gu fibonacciego" << endl << "Ktory wyraz ciagu wyswietlic: ";
+    //Wyznaczanie wyrazu ciÅ¡gu fibonacciego
+    cout << "Wyznaczanie wyrazu ciÅ¡gu fibonacciego" << endl << "Ktory wyraz ciagu wyswietlic: ";
     cin >> ciag;
     cout <<"Liczba to: " << fib(ciag);
 
