@@ -3,7 +3,6 @@
 #include <ctime>
 #include <conio.h>
 #include <cstdlib>
-#include <cctype>
 
 using namespace std;
 
