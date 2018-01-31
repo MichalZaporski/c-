@@ -140,7 +140,7 @@ int main()
 
                 case 'h':
                     system("cls");
-                    flag_petla_wypisywanie=false;;
+                    flag_petla_wypisywanie=false;
                 break;
 
                 case 'i':
