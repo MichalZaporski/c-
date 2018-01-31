@@ -72,86 +72,90 @@ int main()
 {
     int liczba;
     char wybor;
-    powrot:
-    cout << "Podaj ile liczb w ciagu wylosowac: ";
-    while((!(cin>>liczba))||(liczba<1)){
-        cout << "Niepoprawne dane wejsciowe!"<<endl;
-        cin.clear();
-        cin.sync();
-        system("pause");
-        system("cls");
+    bool flag_program_wlaczony=true, flag_petla_wypisywanie;
+    while(flag_program_wlaczony==true){
         cout << "Podaj ile liczb w ciagu wylosowac: ";
-    }
-    system("cls");
-    int *tab = new int[liczba];
-    losowanie(tab, liczba);
-    while(true){
-        wypisz(tab, liczba);
-
-        cout << endl << endl <<  "Sprawdz czy ciag jest: -> Wpisz litere"<<endl;
-        cout << "a) Rosnacy"<<endl;
-        cout << "b) Malejacy"<<endl;
-        cout << "c) Nierosnacy"<<endl;
-        cout << "d) Niemalejacy"<<endl;
-        cout << "e) Staly"<<endl;
-        cout << "f) Niemonotoniczny"<<endl;
-        cout << "---------------------"<<endl;
-        cout << "g) Wylosuj nowy ciag"<<endl;
-        cout << "h) Podaj inny rozmiar"<<endl;
-        cout << "i) Wyjdz z programu"<<endl<<endl;
-        wybor=getch();
-        switch(wybor){
-            case 'a':
-                if(czy_rosnacy(tab, liczba)==true) cout << "Ciag jest rosnacy!";
-                else cout << "Ciag nie jest rosnacy!";
-            break;
-
-            case 'b':
-                if(czy_malejacy(tab, liczba)==true) cout << "Ciag jest malejacy!";
-                else cout << "Ciag nie jest malejacy!";
-            break;
-
-            case 'c':
-                if(czy_nierosnacy(tab, liczba)==true) cout << "Ciag jest nierosnacy!";
-                else cout << "Ciag nie jest nierosnacy!";
-            break;
-
-            case 'd':
-                if(czy_niemalejacy(tab, liczba)==true) cout << "Ciag jest niemalejacy!";
-                else cout << "Ciag nie jest niemalejacy!";
-            break;
-
-            case 'e':
-                if(czy_staly(tab, liczba)==true) cout << "Ciag jest staly!";
-                else cout << "Ciag nie jest staly!";
-            break;
-
-            case 'f':
-                if(czy_niemonotoniczny(tab, liczba)==true) cout << "Ciag jest niemonotoniczny!";
-                else cout << "Ciag nie jest niemonotoniczny!";
-            break;
-
-            case 'g':
-                losowanie(tab, liczba);
-                wypisz(tab, liczba);
-            break;
-
-            case 'h':
-                system("cls");
-                goto powrot;
-            break;
-
-            case 'i':
-                exit(0);
-            break;
-
-            default:
-                cout << "Nie ma takiej funkcji!";
-            break;
+        while((!(cin>>liczba))||(liczba<1)){
+            cout << "Niepoprawne dane wejsciowe!"<<endl;
+            cin.clear();
+            cin.sync();
+            system("pause");
+            system("cls");
+            cout << "Podaj ile liczb w ciagu wylosowac: ";
         }
-        cout << endl;
-        if(wybor!='g')system("pause");
         system("cls");
+        int *tab = new int[liczba];
+        losowanie(tab, liczba);
+        flag_petla_wypisywanie=true;
+        while(flag_petla_wypisywanie==true){
+            wypisz(tab, liczba);
+
+            cout << endl << endl <<  "Sprawdz czy ciag jest: -> Wpisz litere"<<endl;
+            cout << "a) Rosnacy"<<endl;
+            cout << "b) Malejacy"<<endl;
+            cout << "c) Nierosnacy"<<endl;
+            cout << "d) Niemalejacy"<<endl;
+            cout << "e) Staly"<<endl;
+            cout << "f) Niemonotoniczny"<<endl;
+            cout << "---------------------"<<endl;
+            cout << "g) Wylosuj nowy ciag"<<endl;
+            cout << "h) Podaj inny rozmiar"<<endl;
+            cout << "i) Wyjdz z programu"<<endl<<endl;
+            wybor=getch();
+            switch(wybor){
+                case 'a':
+                    if(czy_rosnacy(tab, liczba)==true) cout << "Ciag jest rosnacy!";
+                    else cout << "Ciag nie jest rosnacy!";
+                break;
+
+                case 'b':
+                    if(czy_malejacy(tab, liczba)==true) cout << "Ciag jest malejacy!";
+                    else cout << "Ciag nie jest malejacy!";
+                break;
+
+                case 'c':
+                    if(czy_nierosnacy(tab, liczba)==true) cout << "Ciag jest nierosnacy!";
+                    else cout << "Ciag nie jest nierosnacy!";
+                break;
+
+                case 'd':
+                    if(czy_niemalejacy(tab, liczba)==true) cout << "Ciag jest niemalejacy!";
+                    else cout << "Ciag nie jest niemalejacy!";
+                break;
+
+                case 'e':
+                    if(czy_staly(tab, liczba)==true) cout << "Ciag jest staly!";
+                    else cout << "Ciag nie jest staly!";
+                break;
+
+                case 'f':
+                    if(czy_niemonotoniczny(tab, liczba)==true) cout << "Ciag jest niemonotoniczny!";
+                    else cout << "Ciag nie jest niemonotoniczny!";
+                break;
+
+                case 'g':
+                    losowanie(tab, liczba);
+                    wypisz(tab, liczba);
+                break;
+
+                case 'h':
+                    system("cls");
+                    flag_petla_wypisywanie=false;;
+                break;
+
+                case 'i':
+                    flag_program_wlaczony=false;
+                    flag_petla_wypisywanie=false;
+                break;
+
+                default:
+                    cout << "Nie ma takiej funkcji!";
+                break;
+            }
+            cout << endl;
+            if((wybor!='g')&&(wybor!='h')&&(wybor!='i'))system("pause");
+            system("cls");
+        }
+        delete [] tab;
     }
-    delete [] tab;
 }
