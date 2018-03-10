@@ -1,3 +1,4 @@
+//Created by Michał Zaporski
 #include <iostream>
 #include <windows.h>
 #include <ctime>
@@ -59,11 +60,9 @@ bool czy_staly(int *tab, int liczba){
 
 bool czy_niemonotoniczny(int *tab, int liczba){
 
-    if(czy_rosnacy(tab, liczba)==true) return false;
-    if(czy_malejacy(tab, liczba)==true) return false;
-    if(czy_nierosnacy(tab, liczba)==true) return false;
-    if(czy_niemalejacy(tab, liczba)==true) return false;
-    if(czy_staly(tab, liczba)==true) return false;
+    if((czy_rosnacy(tab, liczba)) || (czy_malejacy(tab, liczba)) ||
+       (czy_nierosnacy(tab, liczba)) || (czy_niemalejacy(tab, liczba)) ||
+       (czy_staly(tab, liczba))) return false;
     return true;
 }
 
@@ -104,32 +103,32 @@ int main()
             wybor=getch();
             switch(wybor){
                 case 'a':
-                    if(czy_rosnacy(tab, liczba)==true) cout << "Ciag jest rosnacy!";
+                    if(czy_rosnacy(tab, liczba)) cout << "Ciag jest rosnacy!";
                     else cout << "Ciag nie jest rosnacy!";
                 break;
 
                 case 'b':
-                    if(czy_malejacy(tab, liczba)==true) cout << "Ciag jest malejacy!";
+                    if(czy_malejacy(tab, liczba)) cout << "Ciag jest malejacy!";
                     else cout << "Ciag nie jest malejacy!";
                 break;
 
                 case 'c':
-                    if(czy_nierosnacy(tab, liczba)==true) cout << "Ciag jest nierosnacy!";
+                    if(czy_nierosnacy(tab, liczba)) cout << "Ciag jest nierosnacy!";
                     else cout << "Ciag nie jest nierosnacy!";
                 break;
 
                 case 'd':
-                    if(czy_niemalejacy(tab, liczba)==true) cout << "Ciag jest niemalejacy!";
+                    if(czy_niemalejacy(tab, liczba)) cout << "Ciag jest niemalejacy!";
                     else cout << "Ciag nie jest niemalejacy!";
                 break;
 
                 case 'e':
-                    if(czy_staly(tab, liczba)==true) cout << "Ciag jest staly!";
+                    if(czy_staly(tab, liczba)) cout << "Ciag jest staly!";
                     else cout << "Ciag nie jest staly!";
                 break;
 
                 case 'f':
-                    if(czy_niemonotoniczny(tab, liczba)==true) cout << "Ciag jest niemonotoniczny!";
+                    if(czy_niemonotoniczny(tab, liczba)) cout << "Ciag jest niemonotoniczny!";
                     else cout << "Ciag nie jest niemonotoniczny!";
                 break;
 
